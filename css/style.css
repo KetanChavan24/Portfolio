@@ -61,6 +61,8 @@ section {
 } */
 
 .about-img {
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
   width: 25rem; /* Set the width of the container */
   height: 25rem; /* Set the height of the container */
@@ -105,7 +107,35 @@ section {
 
 
 
+@media (max-width: 768px) {
+  .about-img {
+    margin: 0 auto; /* Center the image horizontally */
+  }
 
+  .about-img .circle-spin {
+  position: absolute;
+  top: 0; /* Align the top of the circle with the top of the container */
+  left: 0; /* Align the left of the circle with the left of the container */
+  width: 100%; /* Match the width of the container */
+  height: 100%; /* Match the height of the container */
+  border-radius: 50%;
+  border-top: 0 solid var(--second-bg-color);
+  border-bottom: 0 solid var(--second-bg-color);
+  border-left: 0 solid var(--main-color);
+  border-right: 0 solid var(--main-color);
+  animation: aboutSpinner 8s linear infinite;
+}
+
+@keyframes aboutSpinner {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+}
 
 
 
@@ -497,69 +527,39 @@ section {
 }
 
 @media (max-width: 768px) {
-    #menu-icon {
-      display: block;
-    }
+  .navbar {
+    display: none;
+  }
 
-    .navbar{
-      display: none;
-    }
+  #menu-icon {
+    display: block;
+  }
 
-    .navbar {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem 3%;
-      background: var(--bg-color);
-      border-top: .1rem solid rgba(0, 0, 0, .2);
-      box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-    }
+  .navbar.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: #333;
+    padding: 10px;
+  }
 
-    .navbar a{
-      display: block;
-      font-size: 2rem;
-      margin: 3rem 0;
-    }
+  .portfolio-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
 
-    .home{
-      flex-direction: column;
-    }
+  .about-img {
+    margin: 0 auto;
+    width: 20rem;
+    height: 20rem;
+  }
 
-    .home-content h3{
-      font-size: 2.6rem;
-    }
-
-    .home-content h1{
-      font-size: 5rem;
-    }
-
-    .home-img img{
-      width: 70vw;
-      margin-top: 4rem;
-    }
-
-    .about{
-      flex-direction: column-reverse;
-    }
-
-    .about-img{
-      width: 70vw;
-      margin-top: 4rem;
-    }
-
-    .skills h2{
-      margin-bottom: 3rem;
-    }
-
-    .portfolio h2{
-      margin-bottom: 3rem;
-    }
-
-    /* .portfolio-container{
-      display: flex;
-      flex-direction: column;
-    } */
+  .about-img .circle-spin {
+    animation: none;
+  }
 }
 
 @media (max-width: 617px) {
@@ -597,4 +597,8 @@ width: 90vw;
     margin-top: 2rem;
   }
 
+}
+
+html {
+  scroll-behavior: smooth;
 }
